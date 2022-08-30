@@ -15,11 +15,11 @@ export default function Upload() {
       formData.append(key, value);
     });
 
-    // const upload = await fetch(url, {
-    //   method: 'POST',
-    //   body: formData,
-    //   mode: 'no-cors'
-    // });
+    const upload = await fetch(url, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    });
 
     // if (upload.ok) {
     //   console.log('Uploaded successfully!');
@@ -39,16 +39,11 @@ export default function Upload() {
         accept="image/png, image/jpeg"
       />
       <div style={{ marginTop: '20px' }}>
-        {/* <img 
+        <img 
           src={`https://storage.googleapis.com/healthcare-demo-ggl/${imageUrl}`}
           alt="Default"
           width={400}
           height={300}
-        /> */}
-        <Image
-          src={`https://storage.googleapis.com/healthcare-demo-ggl/${imageUrl}`}
-          height={400}
-          width={500}  
         />
       </div>
      
