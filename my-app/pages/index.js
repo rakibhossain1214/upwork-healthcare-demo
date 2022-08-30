@@ -5,6 +5,7 @@ export default function Upload() {
   const [imageUrl, setImageUrl] = useState("");
 
   const uploadPhoto = async (e) => {
+    try{
     const file = e.target.files[0];
     const filename = encodeURIComponent(file.name);
     // const res = await fetch(`/api/upload-url?file=${filename}`);
@@ -26,23 +27,29 @@ export default function Upload() {
       formData.append(key, value);
     });
 
-    const upload = await fetch(url, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'User-Agent': '*',
-        'Access-Control-Allow-Origin': '*'
-      },
-      // mode: 'no-cors'
-    });
+    
+      const upload = await fetch(url, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'User-Agent': '*',
+          'Access-Control-Allow-Origin': '*'
+        },
+        mode: 'no-cors'
+      });
+  
+      if (upload.ok) {
+        console.log('Uploaded successfully!');
+      } else {
+        console.error('Upload failed.');
+      }
 
-    if (upload.ok) {
-      console.log('Uploaded successfully!');
-    } else {
-      console.error('Upload failed.');
+      setImageUrl(fields.key)
+    }catch(e){
+      console.log(e)
     }
-
-    setImageUrl(fields.key)
+  
+   
   };
 
   return (
