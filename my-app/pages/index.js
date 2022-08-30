@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import Image from 'next/image'
 
 export default function Upload() {
   const [imageUrl, setImageUrl] = useState("");
@@ -14,11 +15,17 @@ export default function Upload() {
       formData.append(key, value);
     });
 
-    const upload = await fetch(url, {
-      method: 'POST',
-      body: formData
-    });
+    // const upload = await fetch(url, {
+    //   method: 'POST',
+    //   body: formData,
+    //   mode: 'no-cors'
+    // });
 
+    // if (upload.ok) {
+    //   console.log('Uploaded successfully!');
+    // } else {
+    //   console.error('Upload failed.');
+    // }
 
     setImageUrl(fields.key)
   };
