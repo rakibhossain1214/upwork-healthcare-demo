@@ -33,7 +33,7 @@ export default function Upload() {
         'User-Agent': '*',
         'Access-Control-Allow-Origin': '*'
       },
-      mode: 'no-cors'
+      // mode: 'no-cors'
     });
 
     if (upload.ok) {
