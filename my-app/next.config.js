@@ -9,12 +9,4 @@ module.exports = {
     domains: ['assets.vercel.com', 'storage.googleapis.com'],
     formats: ['image/avif', 'image/webp'],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'https://storage.googleapis.com/:path*',
-      },
-    ]
-  },
 }

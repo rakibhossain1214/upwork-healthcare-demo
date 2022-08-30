@@ -18,14 +18,13 @@ export default function Upload() {
     const upload = await fetch(url, {
       method: 'POST',
       body: formData,
-      mode: 'no-cors'
     });
 
-    // if (upload.ok) {
-    //   console.log('Uploaded successfully!');
-    // } else {
-    //   console.error('Upload failed.');
-    // }
+    if (upload.ok) {
+      console.log('Uploaded successfully!');
+    } else {
+      console.error('Upload failed.');
+    }
 
     setImageUrl(fields.key)
   };
