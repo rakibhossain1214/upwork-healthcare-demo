@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import Image from 'next/image'
+import Image from 'next/image'
 
 export default function Upload() {
   const [imageUrl, setImageUrl] = useState("");
@@ -39,11 +39,16 @@ export default function Upload() {
         accept="image/png, image/jpeg"
       />
       <div style={{ marginTop: '20px' }}>
-        <img 
+        {/* <img 
           src={`https://storage.googleapis.com/healthcare-demo-ggl/${imageUrl}`}
           alt="Default"
           width={400}
           height={300}
+        /> */}
+        <Image
+          src={`https://storage.googleapis.com/healthcare-demo-ggl/${imageUrl}`}
+          height={400}
+          width={500}  
         />
       </div>
      

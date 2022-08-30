@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+// const nextConfig = {
+//   reactStrictMode: false,
+//   swcMinify: false,
+// }
 
-module.exports = nextConfig
+module.exports = {
+  images: {
+    domains: ['assets.vercel.com', 'storage.googleapis.com'],
+    formats: ['image/avif', 'image/webp'],
+  },
+}
