@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Image from 'next/image'
 
 export default function Upload() {
   const [imageUrl, setImageUrl] = useState("");
@@ -21,11 +20,6 @@ export default function Upload() {
       mode: 'no-cors'
     });
 
-    // if (upload.ok) {
-    //   console.log('Uploaded successfully!');
-    // } else {
-    //   console.error('Upload failed.');
-    // }
 
     setImageUrl(fields.key)
   };
