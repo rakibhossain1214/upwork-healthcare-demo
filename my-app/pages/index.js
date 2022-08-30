@@ -17,7 +17,7 @@ export default function Upload() {
 
     const upload = await fetch(url, {
       method: 'POST',
-      body: formData,
+      body: formData
     });
 
     if (upload.ok) {
