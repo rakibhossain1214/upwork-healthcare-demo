@@ -3,11 +3,22 @@ import Image from 'next/image'
 
 export default function Upload() {
   const [imageUrl, setImageUrl] = useState("");
-  
+
   const uploadPhoto = async (e) => {
     const file = e.target.files[0];
     const filename = encodeURIComponent(file.name);
-    const res = await fetch(`/api/upload-url?file=${filename}`);
+    // const res = await fetch(`/api/upload-url?file=${filename}`);
+
+    const res = await fetch(
+      `/api/upload-url?file=${filename}`,
+      {
+        headers: {
+          'User-Agent': '*',
+          'Access-Control-Allow-Origin': '*'
+        }, //this is required by api provider
+      }
+    );
+
     const { url, fields } = await res.json();
     const formData = new FormData();
 
@@ -17,7 +28,12 @@ export default function Upload() {
 
     const upload = await fetch(url, {
       method: 'POST',
-      body: formData
+      body: formData,
+      headers: {
+        'User-Agent': '*',
+        'Access-Control-Allow-Origin': '*'
+      },
+      mode: 'no-cors'
     });
 
     if (upload.ok) {
@@ -38,14 +54,14 @@ export default function Upload() {
         accept="image/png, image/jpeg"
       />
       <div style={{ marginTop: '20px' }}>
-        <img 
+        <img
           src={`https://storage.googleapis.com/healthcare-demo-ggl/${imageUrl}`}
           alt="Default"
           width={400}
           height={300}
         />
       </div>
-     
+
     </>
   );
 }
