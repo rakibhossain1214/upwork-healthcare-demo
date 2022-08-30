@@ -16,8 +16,7 @@ export default function Upload() {
 
     const upload = await fetch(url, {
       method: 'POST',
-      body: formData,
-      mode: 'no-cors'
+      body: formData
     });
 
 
