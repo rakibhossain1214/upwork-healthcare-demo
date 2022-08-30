@@ -1,0 +1,3 @@
+name: BUCKET_NAME=healthcare-demo-ggl
+runtime: nodejs
+description: Example Next.js app to upload images to a GCP storage bucket.
